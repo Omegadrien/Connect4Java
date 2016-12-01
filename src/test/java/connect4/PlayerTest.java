@@ -10,13 +10,13 @@ import static org.junit.Assert.*;
 public class PlayerTest {
 
     @Test
-    public void CreationJoueur() {
+    public void PlayerCreation() {
         Player j = new Player("X");
         assertEquals("X", j.getSymbole());
     }
 
     @Test (expected = BadSymbolException.class)
-    public void CreationJoueurValide() {
+    public void PlayerCreationIsOK() {
         Player j = new Player("lol");
     }
 }

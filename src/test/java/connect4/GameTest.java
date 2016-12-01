@@ -10,31 +10,15 @@ import static org.junit.Assert.*;
  */
 public class GameTest {
 
-    private Game partie;
+    private Game game;
 
     @Before
     public void Init () {
-        partie = new Game();
+        game = new Game();
     }
 
     @Test
-    public void IntanciationGame() {
-        Game partie = new Game();
+    public void InstantiationGame() {
+        Game game1 = new Game();
     }
-
-    /*@Test
-    public void TestTourDeJeuPilePleine() {
-        Player j = new Player("X");
-        partie.Turn(j);
-        partie.Turn(j);
-        partie.Turn(j);
-        partie.Turn(j);
-        partie.Turn(j);
-        partie.Turn(j);
-
-        boolean jetonPlace = partie.Turn(j);
-        assertFalse(jetonPlace);
-    }
-    */
-
 }

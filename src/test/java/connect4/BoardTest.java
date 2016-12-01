@@ -21,12 +21,12 @@ public class BoardTest {
     }
 
     @Test (expected = RuntimeException.class)
-    public void TestPlacementJeton() {
+    public void TestLocationToken() {
         test.PutASquare(8, "X");
     }
 
     @Test (expected = FullStackExeption.class)
-    public void ColonnePleine() {
+    public void FullStack() {
         test.PutASquare(1, "X");
         test.PutASquare(1, "X");
         test.PutASquare(1, "X");

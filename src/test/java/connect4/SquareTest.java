@@ -18,7 +18,7 @@ public class SquareTest {
     }
 
     @Test
-    public void InstentationSquare() {
+    public void InstensiationToken() {
         Token toto = new Token();
     }
 
