@@ -46,7 +46,7 @@ public class Game {
     }
 
     private boolean CheckVictory(Player player) {
-        return board.Check4Squares();
+        return board.Check4Tokens();
     }
 
     public void Start() {
@@ -54,15 +54,13 @@ public class Game {
         boolean someoneWon = false;
         Player currentPlayer = player1;
         display.DisplayTheBoard(board.getBoard2D());
-
-        // trouver un nom pour la fonction
+        
         while (numberOfSquaredPlaced < 7*6 && !someoneWon) {
             if (Turn(currentPlayer)) {
                 someoneWon = CheckVictory(currentPlayer);
                 numberOfSquaredPlaced++;
                 currentPlayer = ReversePlayer(currentPlayer);
             }
-
             display.DisplayTheBoard(board.getBoard2D());
         }
 

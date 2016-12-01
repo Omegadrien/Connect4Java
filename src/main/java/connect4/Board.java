@@ -45,44 +45,40 @@ public class Board {
         }
     }
 
-    public boolean Check4Squares() {
-        return (Check4SquaresHorizontal() ||
-                Check4SquaresVertical() ||
-                Check4SquaresDiagonalBottomLeftToTopRight() ||
-                Check4SquaresDiagonalBottomRightTopLeft());
+    public boolean Check4Tokens() {
+        return (Check4TokensHorizontal() ||
+                Check4TokensVertical() ||
+                Check4TokensDiagonalBottomLeftToTopRight() ||
+                Check4TokensDiagonalBottomRightToTopLeft());
     }
 
-    private boolean Check4SquaresVertical() {
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (Board2D[i][j].getValue() != " " &&
-                    Board2D[i][j].getValue() == Board2D[i][j+1].getValue() &&
-                    Board2D[i][j+1].getValue() == Board2D[i][j+2].getValue() &&
-                    Board2D[i][j+2].getValue() == Board2D[i][j+3].getValue())
-                {
-                    return true;
-                }
+    private boolean Check4TokensVertical() {
+        for (int j = 0; j < 3; j++) {
+            if (Board2D[tokenPosX][j].getValue() != " " &&
+                Board2D[tokenPosX][j].getValue() == Board2D[tokenPosX][j+1].getValue() &&
+                Board2D[tokenPosX][j+1].getValue() == Board2D[tokenPosX][j+2].getValue() &&
+                Board2D[tokenPosX][j+2].getValue() == Board2D[tokenPosX][j+3].getValue())
+            {
+                return true;
             }
         }
         return false;
     }
 
-    private boolean Check4SquaresHorizontal() {
+    private boolean Check4TokensHorizontal() {
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 6; j++) {
-                if (Board2D[i][j].getValue() != " " &&
-                    Board2D[i][j].getValue() == Board2D[i+1][j].getValue() &&
-                    Board2D[i+1][j].getValue() == Board2D[i+2][j].getValue() &&
-                    Board2D[i+2][j].getValue() == Board2D[i+3][j].getValue())
-                {
-                    return true;
-                }
+            if (Board2D[i][tokenPosY].getValue() != " " &&
+                Board2D[i][tokenPosY].getValue() == Board2D[i+1][tokenPosY].getValue() &&
+                Board2D[i+1][tokenPosY].getValue() == Board2D[i+2][tokenPosY].getValue() &&
+                Board2D[i+2][tokenPosY].getValue() == Board2D[i+3][tokenPosY].getValue())
+            {
+                return true;
             }
         }
         return false;
     }
 
-    private boolean Check4SquaresDiagonalBottomLeftToTopRight() {
+    private boolean Check4TokensDiagonalBottomLeftToTopRight() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Board2D[i][j].getValue() != " " &&
@@ -97,7 +93,7 @@ public class Board {
         return false;
     }
 
-    private boolean Check4SquaresDiagonalBottomRightTopLeft() {
+    private boolean Check4TokensDiagonalBottomRightToTopLeft() {
         for (int i = 3; i < 7; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Board2D[i][j].getValue() != " " &&
