@@ -19,8 +19,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gradle-empty-project_main" target="1.8" />
-      <module name="gradle-empty-project_test" target="1.8" />
+      <module name="connect4-JA-AH_main" target="1.8" />
+      <module name="connect4-JA-AH_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

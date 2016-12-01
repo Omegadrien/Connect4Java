@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-empty-project.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-empty-project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-empty-project_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-empty-project_main.iml" group="gradle-empty-project" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-empty-project_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-empty-project_test.iml" group="gradle-empty-project" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/connect4-JA-AH.iml" filepath="$PROJECT_DIR$/.idea/modules/connect4-JA-AH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/connect4-JA-AH_main.iml" filepath="$PROJECT_DIR$/.idea/modules/connect4-JA-AH_main.iml" group="connect4-JA-AH" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/connect4-JA-AH_test.iml" filepath="$PROJECT_DIR$/.idea/modules/connect4-JA-AH_test.iml" group="connect4-JA-AH" />
     </modules>
   </component>
 </project>

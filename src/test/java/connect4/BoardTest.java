@@ -14,7 +14,7 @@ public class BoardTest {
 
     @Test
     public void TestCreationBoard() {
-        Board toto = new Board();
+        Board board = new Board();
     }
 
     @Test (expected = RuntimeException.class)

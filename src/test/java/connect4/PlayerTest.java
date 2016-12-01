@@ -8,12 +8,12 @@ public class PlayerTest {
 
     @Test
     public void PlayerCreation() {
-        Player j = new Player("X");
-        assertEquals("X", j.getSymbole());
+        Player player = new Player("X");
+        assertEquals("X", player.getSymbole());
     }
 
     @Test (expected = BadSymbolException.class)
     public void PlayerCreationIsOK() {
-        Player j = new Player("lol");
+        Player player = new Player("lol");
     }
 }

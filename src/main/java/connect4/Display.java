@@ -24,9 +24,9 @@ public class Display {
         System.out.println();
     }
 
-    public void DisplayTheWinner(Player p) {
+    public void DisplayTheWinner(Player player) {
         System.out.println();
-        System.out.print("The player " + p.getSymbole() + " won!");
+        System.out.print("The player " + player.getSymbole() + " won!");
     }
 
     public void DisplayDraw() {
@@ -34,8 +34,8 @@ public class Display {
         System.out.print("Draw!");
     }
 
-    public int AskChoicePlayer(Player p) {
-        System.out.print("Enter a column, player " + p.getSymbole() + " : ");
+    public int AskChoicePlayer(Player player) {
+        System.out.print("Enter a column, player " + player.getSymbole() + " : ");
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         return Integer.parseInt(str);

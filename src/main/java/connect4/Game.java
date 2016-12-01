@@ -1,26 +1,23 @@
 package connect4;
 
-/**
- * Created by Adrien on 24/11/2016.
- */
 public class Game {
 
     private Board board;
     private Display display;
-    private Player j1;
-    private Player j2;
+    private Player player1;
+    private Player player2;
 
     public Game () {
         board = new Board();
         display = new Display();
-        j1 = new Player("X");
-        j2 = new Player("O");
+        player1 = new Player("X");
+        player2 = new Player("O");
     }
 
-    private boolean Turn(Player j) {
+    private boolean Turn(Player player) {
         int playerChoice;
         try {
-            playerChoice = display.AskChoicePlayer(j);
+            playerChoice = display.AskChoicePlayer(player);
         }
         catch (NumberFormatException NumberFormatException) {
             display.DisplayBadInput();
@@ -28,7 +25,7 @@ public class Game {
         }
 
         try {
-            board.PutASquare(playerChoice, j.getSymbole());
+            board.PutASquare(playerChoice, player.getSymbole());
         }
         catch (connect4.FullStackException FullStackException) {
             display.DisplayFullStack();
@@ -41,21 +38,21 @@ public class Game {
         return true;
     }
 
-    private Player ReversePlayer(Player p) {
-        if (p == j1)
-            return  j2;
+    private Player ReversePlayer(Player player) {
+        if (player == player1)
+            return player2;
         else
-            return j1;
+            return player1;
     }
 
-    private boolean CheckVictory(Player p) {
+    private boolean CheckVictory(Player player) {
         return board.Check4Squares();
     }
 
     public void Start() {
         int numberOfSquaredPlaced = 0;
         boolean someoneWon = false;
-        Player currentPlayer = j1;
+        Player currentPlayer = player1;
         display.DisplayTheBoard(board.getBoard2D());
 
         // trouver un nom pour la fonction

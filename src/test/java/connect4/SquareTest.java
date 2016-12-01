@@ -19,7 +19,7 @@ public class SquareTest {
 
     @Test
     public void TokenInstantiation() {
-        Token toto = new Token();
+        Token token = new Token();
     }
 
     @Test (expected = RuntimeException.class)
