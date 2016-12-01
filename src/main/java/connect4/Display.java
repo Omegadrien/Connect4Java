@@ -26,31 +26,31 @@ public class Display {
 
     public void DisplayTheWinner(Player p) {
         System.out.println();
-        System.out.print("Le joueur " + p.getSymbole() + " a gagné");
+        System.out.print("The player " + p.getSymbole() + " won!");
     }
 
-    public void DisplayTie() {
+    public void DisplayDraw() {
         System.out.println();
-        System.out.print("Match nul !");
+        System.out.print("Draw!");
     }
 
     public int AskChoicePlayer(Player p) {
-        System.out.print("Rentrez la colonne, joueur " + p.getSymbole() + " : ");
+        System.out.print("Enter a column, player " + p.getSymbole() + " : ");
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         return Integer.parseInt(str);
     }
 
     public void DisplayFullStack() {
-        System.out.print("\n Pile pleine !!\n");
+        System.out.print("\nThe row is full!\n");
     }
 
     public void DisplayTabOverflow() {
-        System.out.print("\n Valeur en dehors du tableau.\n");
+        System.out.print("\nBad row input.\n");
     }
 
     public void DisplayBadInput() {
-        System.out.print("\nLa valeur entrée est incorrecte.\n");
+        System.out.print("\nBad input.\n");
     }
 
 }

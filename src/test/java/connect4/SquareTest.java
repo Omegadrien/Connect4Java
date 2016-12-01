@@ -18,7 +18,7 @@ public class SquareTest {
     }
 
     @Test
-    public void InstensiationToken() {
+    public void TokenInstantiation() {
         Token toto = new Token();
     }
 
@@ -30,5 +30,4 @@ public class SquareTest {
         square.setValue("toto");
         assertEquals("X", square.getValue());
     }
-
 }

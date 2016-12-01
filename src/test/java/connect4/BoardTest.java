@@ -3,9 +3,6 @@ package connect4;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by Adrien on 24/11/2016.
- */
 public class BoardTest {
 
     private Board test;
@@ -21,11 +18,11 @@ public class BoardTest {
     }
 
     @Test (expected = RuntimeException.class)
-    public void TestLocationToken() {
+    public void TestLocationOfToken() {
         test.PutASquare(8, "X");
     }
 
-    @Test (expected = FullStackExeption.class)
+    @Test (expected = FullStackException.class)
     public void FullStack() {
         test.PutASquare(1, "X");
         test.PutASquare(1, "X");
@@ -36,7 +33,7 @@ public class BoardTest {
         test.PutASquare(1, "X");
     }
 
-    @Test (expected = TableOverflow.class)
+    @Test (expected = TableOverflowException.class)
     public void PutOutOfRangeSquare() {
         test.PutASquare(8,"X");
     }

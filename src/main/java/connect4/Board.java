@@ -1,8 +1,5 @@
 package connect4;
 
-/**
- * Created by Adrien on 24/11/2016.
- */
 public class Board {
 
     public Token[][] getBoard2D() {
@@ -22,7 +19,7 @@ public class Board {
 
     public void PutASquare(int row, String symbolPlayer) {
         if (row < 1 || row > 7) {
-            throw new TableOverflow();
+            throw new TableOverflowException();
         }
 
         int line = 0;
@@ -38,7 +35,7 @@ public class Board {
         }
 
         if (squarePlaced == false) {
-            throw new FullStackExeption();
+            throw new FullStackException();
         }
     }
 

@@ -30,11 +30,11 @@ public class Game {
         try {
             board.PutASquare(playerChoice, j.getSymbole());
         }
-        catch (FullStackExeption FullStackException) {
+        catch (connect4.FullStackException FullStackException) {
             display.DisplayFullStack();
             return false;
         }
-        catch (TableOverflow TableOverflow) {
+        catch (TableOverflowException TableOverflowException) {
             display.DisplayTabOverflow();
             return  false;
         }
@@ -73,7 +73,7 @@ public class Game {
             display.DisplayTheWinner(ReversePlayer(currentPlayer));
         }
         else {
-            display.DisplayTie();
+            display.DisplayDraw();
         }
 
     }
