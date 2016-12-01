@@ -25,7 +25,7 @@ public class Game {
         }
 
         try {
-            board.PutASquare(playerChoice, player.getSymbole());
+            board.PlaceTokenTopOfRow(playerChoice, player.getSymbole());
         }
         catch (connect4.FullStackException FullStackException) {
             display.DisplayFullStack();

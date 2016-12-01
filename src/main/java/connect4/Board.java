@@ -7,6 +7,8 @@ public class Board {
     }
 
     private Token[][] Board2D;
+    private int tokenPosX;
+    private int tokenPosY;
 
     public Board () {
         Board2D = new Token[7][6];
@@ -17,14 +19,14 @@ public class Board {
         }
     }
 
-    public void PutASquare(int row, String symbolPlayer) {
+    public void PlaceTokenTopOfRow(int row, String symbolPlayer) {
         if (row < 1 || row > 7) {
             throw new TableOverflowException();
         }
 
         int line = 0;
         boolean squarePlaced = false;
-        while (squarePlaced == false && line < 6) {
+        while (line < 6 && squarePlaced == false) {
             if (Board2D[row-1][line].getValue() != " ") {
                 line++;
             }
@@ -34,22 +36,29 @@ public class Board {
             }
         }
 
-        if (squarePlaced == false) {
+        if (squarePlaced) {
+            tokenPosX = row-1;//the player will enter 1, but it's 0 on the board.
+            tokenPosY = line;
+        }
+        else {
             throw new FullStackException();
         }
     }
 
     public boolean Check4Squares() {
-        return (Check4SquaresHorizontal() || Check4SquaresVertical() || Check4SquaresDiagonalBottomLeftToTopRight() || Check4SquaresDiagonalBottomRightTopLeft());
+        return (Check4SquaresHorizontal() ||
+                Check4SquaresVertical() ||
+                Check4SquaresDiagonalBottomLeftToTopRight() ||
+                Check4SquaresDiagonalBottomRightTopLeft());
     }
 
     private boolean Check4SquaresVertical() {
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Board2D[i][j].getValue() != " " &&
-                        Board2D[i][j].getValue() == Board2D[i][j+1].getValue() &&
-                        Board2D[i][j+1].getValue() == Board2D[i][j+2].getValue() &&
-                        Board2D[i][j+2].getValue() == Board2D[i][j+3].getValue())
+                    Board2D[i][j].getValue() == Board2D[i][j+1].getValue() &&
+                    Board2D[i][j+1].getValue() == Board2D[i][j+2].getValue() &&
+                    Board2D[i][j+2].getValue() == Board2D[i][j+3].getValue())
                 {
                     return true;
                 }
@@ -62,9 +71,9 @@ public class Board {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
                 if (Board2D[i][j].getValue() != " " &&
-                        Board2D[i][j].getValue() == Board2D[i+1][j].getValue() &&
-                        Board2D[i+1][j].getValue() == Board2D[i+2][j].getValue() &&
-                        Board2D[i+2][j].getValue() == Board2D[i+3][j].getValue())
+                    Board2D[i][j].getValue() == Board2D[i+1][j].getValue() &&
+                    Board2D[i+1][j].getValue() == Board2D[i+2][j].getValue() &&
+                    Board2D[i+2][j].getValue() == Board2D[i+3][j].getValue())
                 {
                     return true;
                 }
@@ -77,9 +86,9 @@ public class Board {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Board2D[i][j].getValue() != " " &&
-                        Board2D[i][j].getValue() == Board2D[i+1][j+1].getValue() &&
-                        Board2D[i+1][j+1].getValue() == Board2D[i+2][j+2].getValue() &&
-                        Board2D[i+2][j+2].getValue() == Board2D[i+3][j+3].getValue())
+                    Board2D[i][j].getValue() == Board2D[i+1][j+1].getValue() &&
+                    Board2D[i+1][j+1].getValue() == Board2D[i+2][j+2].getValue() &&
+                    Board2D[i+2][j+2].getValue() == Board2D[i+3][j+3].getValue())
                 {
                     return true;
                 }
@@ -92,9 +101,9 @@ public class Board {
         for (int i = 3; i < 7; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Board2D[i][j].getValue() != " " &&
-                        Board2D[i][j].getValue() == Board2D[i-1][j+1].getValue() &&
-                        Board2D[i-1][j+1].getValue() == Board2D[i-2][j+2].getValue() &&
-                        Board2D[i-2][j+2].getValue() == Board2D[i-3][j+3].getValue())
+                    Board2D[i][j].getValue() == Board2D[i-1][j+1].getValue() &&
+                    Board2D[i-1][j+1].getValue() == Board2D[i-2][j+2].getValue() &&
+                    Board2D[i-2][j+2].getValue() == Board2D[i-3][j+3].getValue())
                 {
                     return true;
                 }
