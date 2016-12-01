@@ -45,7 +45,7 @@ public class Game {
             return player1;
     }
 
-    private boolean CheckVictory(Player player) {
+    private boolean CheckVictory() {
         return board.Check4Tokens();
     }
 
@@ -54,10 +54,10 @@ public class Game {
         boolean someoneWon = false;
         Player currentPlayer = player1;
         display.DisplayTheBoard(board.getBoard2D());
-        
+
         while (numberOfSquaredPlaced < 7*6 && !someoneWon) {
             if (Turn(currentPlayer)) {
-                someoneWon = CheckVictory(currentPlayer);
+                someoneWon = CheckVictory();
                 numberOfSquaredPlaced++;
                 currentPlayer = ReversePlayer(currentPlayer);
             }
