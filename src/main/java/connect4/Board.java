@@ -25,19 +25,23 @@ public class Board {
         }
 
         int line = 0;
-        boolean squarePlaced = false;
-        while (line < 6 && squarePlaced == false) {
+        boolean tokenPlaced = false;
+        while (line < 6 && tokenPlaced == false) {
             if (Board2D[row-1][line].getValue() != " ") {
                 line++;
             }
             else {
                 Board2D[row-1][line].setValue(symbolPlayer);
-                squarePlaced = true;
+                tokenPlaced = true;
             }
         }
 
-        if (squarePlaced) {
-            tokenPosX = row-1;//the player will enter 1, but it's 0 on the board.
+        SetTokenPositionVariable(tokenPlaced, row, line);
+    }
+
+    private void SetTokenPositionVariable(boolean tokenPlaced, int row, int line) {
+        if (tokenPlaced) {
+            tokenPosX = row-1;//if the player enter 1, it's 0 on the board table.
             tokenPosY = line;
         }
         else {
@@ -107,5 +111,4 @@ public class Board {
         }
         return false;
     }
-
 }

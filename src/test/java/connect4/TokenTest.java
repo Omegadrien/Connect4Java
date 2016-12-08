@@ -5,16 +5,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Adrien on 24/11/2016.
- */
-public class SquareTest {
+public class TokenTest {
 
-    private Token square;
+    private Token token;
 
     @Before
     public  void init() {
-        square = new Token();
+        token = new Token();
     }
 
     @Test
@@ -24,10 +21,10 @@ public class SquareTest {
 
     @Test (expected = RuntimeException.class)
     public void GetValueSquare () {
-        assertEquals(" ", square.getValue());
-        square.setValue("X");
-        assertEquals("X", square.getValue());
-        square.setValue("toto");
-        assertEquals("X", square.getValue());
+        assertEquals(" ", token.getValue());
+        token.setValue("X");
+        assertEquals("X", token.getValue());
+        token.setValue("toto");
+        assertEquals("X", token.getValue());
     }
 }

@@ -9,7 +9,7 @@ public class PlayerTest {
     @Test
     public void PlayerCreation() {
         Player player = new Player("X");
-        assertEquals("X", player.getSymbole());
+        assertEquals("X", player.getSymbol());
     }
 
     @Test (expected = BadSymbolException.class)

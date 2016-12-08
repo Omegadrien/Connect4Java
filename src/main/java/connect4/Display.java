@@ -2,9 +2,6 @@ package connect4;
 
 import java.util.Scanner;
 
-/**
- * Created by Adrien on 25/11/2016.
- */
 public class Display {
 
     private Scanner scanner = new Scanner(System.in);
@@ -26,32 +23,28 @@ public class Display {
 
     public void DisplayTheWinner(Player player) {
         System.out.println();
-        System.out.print("The player " + player.getSymbole() + " won!");
+        System.out.print("The player " + player.getSymbol() + " won!");
     }
 
     public void DisplayDraw() {
         System.out.println();
-        System.out.print("Draw!");
+        System.out.print("The game ended in a draw...");
     }
 
     public int AskChoicePlayer(Player player) {
-        System.out.print("Enter a column, player " + player.getSymbole() + " : ");
+        System.out.print("Enter a row number, player " + player.getSymbol() + " : ");
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        return Integer.parseInt(str);
+        return Integer.parseInt(sc.nextLine());
     }
 
-    public void DisplayFullStack() {
-        System.out.print("\nThe row is full!\n");
-    }
+    public void DisplayFullStack() { System.out.print("\nThe row is full! Please select another one.\n");}
 
     public void DisplayTabOverflow() {
         System.out.print("\nBad row input.\n");
     }
 
     public void DisplayBadInput() {
-        System.out.print("\nBad input.\n");
+        System.out.print("\nBad input. Please enter an integer.\n");
     }
-
 }
 

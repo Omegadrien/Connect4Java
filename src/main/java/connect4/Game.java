@@ -4,14 +4,14 @@ public class Game {
 
     private Board board;
     private Display display;
-    private Player player1;
-    private Player player2;
+    private Player playerX;
+    private Player playerY;
 
     public Game () {
         board = new Board();
         display = new Display();
-        player1 = new Player("X");
-        player2 = new Player("O");
+        playerX = new Player("X");
+        playerY = new Player("O");
     }
 
     private boolean Turn(Player player) {
@@ -25,7 +25,7 @@ public class Game {
         }
 
         try {
-            board.PlaceTokenTopOfRow(playerChoice, player.getSymbole());
+            board.PlaceTokenTopOfRow(playerChoice, player.getSymbol());
         }
         catch (connect4.FullStackException FullStackException) {
             display.DisplayFullStack();
@@ -39,38 +39,38 @@ public class Game {
     }
 
     private Player ReversePlayer(Player player) {
-        if (player == player1)
-            return player2;
+        if (player == playerX)
+            return playerY;
         else
-            return player1;
+            return playerX;
     }
 
     private boolean CheckVictory() {
         return board.Check4Tokens();
     }
 
-    public void Start() {
-        int numberOfSquaredPlaced = 0;
-        boolean someoneWon = false;
-        Player currentPlayer = player1;
+    public void Play() {
+        int numberOfPlacedTokens = 0;
+        boolean someoneWin = false;
+        Player currentPlayer = playerX; //Player X is always the first to play
         display.DisplayTheBoard(board.getBoard2D());
 
-        while (numberOfSquaredPlaced < 7*6 && !someoneWon) {
+        while (numberOfPlacedTokens < 7*6 && !someoneWin) {
             if (Turn(currentPlayer)) {
-                someoneWon = CheckVictory();
-                numberOfSquaredPlaced++;
-                currentPlayer = ReversePlayer(currentPlayer);
+                numberOfPlacedTokens++;
+                if (!CheckVictory())
+                    currentPlayer = ReversePlayer(currentPlayer);
+                else
+                    someoneWin = true;
             }
             display.DisplayTheBoard(board.getBoard2D());
         }
 
-        if (someoneWon) {
-            display.DisplayTheWinner(ReversePlayer(currentPlayer));
+        if (someoneWin) {
+            display.DisplayTheWinner(currentPlayer);
         }
         else {
             display.DisplayDraw();
         }
-
     }
-
 }

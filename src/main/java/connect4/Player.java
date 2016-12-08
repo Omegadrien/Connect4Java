@@ -2,16 +2,16 @@ package connect4;
 
 public class Player {
 
-    public String getSymbole() {
-        return symbole;
+    public String getSymbol() {
+        return symbol;
     }
 
-    private String symbole;
+    private String symbol;
 
-    public Player(String Symbole) {
-        if (Symbole != "X" && Symbole != "O") {
+    public Player(String Symbol) {
+        if (Symbol != "X" && Symbol != "O") {
             throw new BadSymbolException();
         }
-        this.symbole = Symbole;
+        this.symbol = Symbol;
     }
 }
