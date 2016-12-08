@@ -5,13 +5,13 @@ public class Game {
     private Board board;
     private Display display;
     private Player playerX;
-    private Player playerY;
+    private Player playerO;
 
     public Game () {
         board = new Board();
         display = new Display();
         playerX = new Player("X");
-        playerY = new Player("O");
+        playerO = new Player("O");
     }
 
     private boolean Turn(Player player) {
@@ -40,7 +40,7 @@ public class Game {
 
     private Player ReversePlayer(Player player) {
         if (player == playerX)
-            return playerY;
+            return playerO;
         else
             return playerX;
     }
